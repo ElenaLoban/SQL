@@ -1,0 +1,12 @@
+Data Base: https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
+
+Task: Show all the information about the Tofu product and the customers who ordered Tofu. Order the customer IDs in descending order
+
+Solution:
+SELECT DISTINCT Customers.CustomerID, Customers.CustomerName, Customers.ContactName, Customers.Address, Customers.City, Customers.PostalCode, Customers.Country, Products.ProductName
+FROM Customers
+INNER JOIN Orders ON Orders.CustomerID = Customers.CustomerID
+INNER JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID
+INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID
+WHERE ProductName='Tofu'
+ORDER BY Customers.CustomerID DESC;
