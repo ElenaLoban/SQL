@@ -1,0 +1,12 @@
+stepik.org SQL
+les_1.4_2
+
+Task: Display information (author, title and price) about books whose prices are less than or equal to the average price of books in stock. The information should be displayed in descending order of the price. Calculate the average as the average for the price of the book.
+
+Solution:
+SELECT author, title, price
+FROM book
+WHERE price <= (
+SELECT AVG(price)
+FROM book)
+ORDER BY price DESC;
