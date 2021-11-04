@@ -1,0 +1,10 @@
+stepik.org SQL
+les_1.4_3
+
+Task: Display information (author, title and price) about books whose prices exceed the minimum price of a book in stock by no more than 150 rubles in ascending order of price.
+
+Solution:
+SELECT author, title, price 
+FROM book
+WHERE price <= ((SELECT MIN(price) FROM book) + 150) 
+ORDER BY price ASC;
